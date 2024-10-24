@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block head %}
+    <title>Treatment</title>
+    <style>
+        body
+        {
+            background-image: url('{% static "img/mcover.jpeg" %}');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .container
+        {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            height: 642px;
+        }
+        .block
+        {
+            background-color: rgb(216, 216, 216);
+            border-radius: 10px;
+            text-align: center;
+            padding: 35px;
+            justify-self: center;
+            width: 400px;
+        }
+        button
+        {
+            border-radius: 8px;
+            background-color: rgb(57, 97, 255);
+            color: white;
+            border: 0px;
+            padding: 10px;
+            width: 200px;
+        }
+    </style>
+{% endblock head %}
+
+
+{% block content %}
+
+    <div class="container">
+        <div class="block">
+            <h1>Treatment</h1>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

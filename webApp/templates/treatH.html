@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block head %}
+    <title>Treatments</title>
+    <style>
+        body
+        {
+            background-image: url('{% static "img/mcover.jpeg" %}');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .container
+        {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            height: 642px;
+        }
+        .block
+        {
+            background-color: rgb(216, 216, 216);
+            border-radius: 10px;
+            text-align: center;
+            padding: 35px;
+            justify-self: center;
+        }
+        button
+        {
+            border-radius: 8px;
+            background-color: rgb(57, 97, 255);
+            color: white;
+            border: 0px;
+            padding: 10px;
+            width: 200px;
+        }
+    </style>
+{% endblock head %}
+
+
+{% block content %}
+
+    <div class="container">
+        <div class="block">
+            <h2>Treatment History</h2>
+            <table class="table table-bordered" style="text-align: center">
+                <thead class="table-dark">
+                <tr>
+                    <th >Appointment</th>
+                    <th >Diagnosis</th>
+                    <th>Medicines</th>
+                </tr>
+                </thead>
+              {% for items in treatments %}
+                <tbody>
+                    <tr>
+                        <td>{{ items.appointment }}</td>
+                        <td>{{ items.diagnosis }}</td>
+                        <td>{{ items.med }}</td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block head %}
+    <title>Doctor</title>
+    <style>
+        body
+        {
+            background-image: url('{% static "img/mcover.jpeg" %}');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .container
+        {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            height: 642px;
+        }
+        .block
+        {
+            background-color: rgb(216, 216, 216);
+            border-radius: 10px;
+            text-align: center;
+            padding: 35px;
+            justify-self: center;
+        }
+        button
+        {
+            border-radius: 8px;
+            background-color: rgb(57, 97, 255);
+            color: white;
+            border: 0px;
+            padding: 10px;
+            width: 200px;
+        }
+    </style>
+{% endblock head %}
+
+
+{% block content %}
+
+    <div class="container">
+        <div class="block">
+            <h2>Appointment</h2><br>
+            <a href="{% url 'treatment' %}"><button>Enter Treatment</button></a><br><br>
+            <a href="{% url 'treatH' %}"><button>Treatment History</button></a><br>
+        </div>
+    </div>
+{% endblock content %}
